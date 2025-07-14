@@ -1,6 +1,7 @@
-using System.ComponentModel.DataAnnotations;
 using EPiServer.SpecializedProperties;
+using OptimizelyBlogs.Foundation.SiteSetting.Models;
 using OptimizelyBlogs.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
 
 namespace OptimizelyBlogs.Models.Pages
 {
@@ -32,6 +33,13 @@ namespace OptimizelyBlogs.Models.Pages
         ])] // ...and underneath those we can't create additional start pages
     public class StartPage : SitePageData
     {
+        [Display(Name = "Settings Folder",
+           Description = "You can add the custom settings (layout, header, footer) for each start page.",
+           GroupName = SystemTabNames.Settings, Order = 10)]
+        [AllowedTypes(typeof(SettingsFolder))]
+        public virtual ContentReference SettingsFolder { get; set; }
+
+
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 320)]

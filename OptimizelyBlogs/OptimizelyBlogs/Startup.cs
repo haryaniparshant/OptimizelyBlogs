@@ -4,6 +4,8 @@ using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using OptimizelyBlogs.Extensions;
+using OptimizelyBlogs.Foundation.SiteSetting.Services.Implement;
+using OptimizelyBlogs.Foundation.SiteSetting.Services.Interface;
 
 namespace OptimizelyBlogs
 {
@@ -21,6 +23,9 @@ namespace OptimizelyBlogs
             if (_webHostingEnvironment.IsDevelopment())
             {
                 AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
+
+
+                services.AddSingleton<ISettingsService, SettingsService>();
 
                 services.Configure<SchedulerOptions>(options => options.Enabled = false);
             }

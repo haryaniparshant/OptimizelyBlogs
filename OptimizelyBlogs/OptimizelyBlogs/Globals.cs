@@ -38,6 +38,9 @@ namespace OptimizelyBlogs
 
             [Display(Name = "Specialized", Order = 90)]
             public const string Specialized = "Specialized";
+
+            [Display(Name = "Data Sources", Order = 10)]
+            public const string DataSources = "Data Sources";
         }
 
         /// <summary>
